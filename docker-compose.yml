@@ -1,0 +1,35 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    image: xsweak/backend:latest
+    ports:
+      - "5000:5000"
+    restart: always
+    networks:
+      - mynetwork
+    volumes:
+      - backend_logs:/app/backend_logs
+
+  frontend:
+    build:
+      context: ./frontend
+    image: xsweak/frontend:latest
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - mynetwork
+    volumes:
+      - frontend_logs:/app/frontend_logs
+
+networks:
+  mynetwork:
+    driver: bridge
+
+volumes:
+  backend_logs:
+    name: backend_logs
+  frontend_logs:
+    name: frontend_logs
