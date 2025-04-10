@@ -12,7 +12,8 @@ Ce projet est une application web composée d'un **backend Node.js** et d'un **f
 
 1. Clonez ce dépôt.
 2. Assurez-vous d'être dans le répertoire du projet.
-3. Exécutez la commande suivante pour démarrer les services :
+3. Assurez-vous que les ports 3000 et 5001 sont disponibles.
+4. Exécutez la commande suivante pour démarrer les services :
 
 ```bash
    docker-compose up
